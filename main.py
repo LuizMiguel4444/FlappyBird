@@ -10,25 +10,25 @@ TELA_LARGURA = 500
 TELA_ALTURA = 700
 
 pygame.display.set_caption("FlappyBird")
-icone = pygame.image.load("./FlappyBird/imgs/bird1.png")
-icone_caption = pygame.image.load("./FlappyBird/imgs/bird4.png")
+icone = pygame.image.load("imgs/bird1.png")
+icone_caption = pygame.image.load("imgs/bird4.png")
 pygame.display.set_icon(icone_caption)
 hora = datetime.datetime.now()
 
-IMAGEM_CANO = pygame.transform.scale2x(pygame.image.load(os.path.join("./FlappyBird/imgs", "pipe.png")))
-IMAGEM_CHAO = pygame.transform.scale2x(pygame.image.load(os.path.join("./FlappyBird/imgs", "base.png")))
+IMAGEM_CANO = pygame.transform.scale2x(pygame.image.load(os.path.join("imgs", "pipe.png")))
+IMAGEM_CHAO = pygame.transform.scale2x(pygame.image.load(os.path.join("imgs", "base.png")))
 if hora.hour <= 17 and hora.hour >= 6:
-    IMAGEM_BACKGROUND = pygame.transform.scale2x(pygame.image.load(os.path.join("./FlappyBird/imgs", "bg.png")))
+    IMAGEM_BACKGROUND = pygame.transform.scale2x(pygame.image.load(os.path.join("imgs", "bg.png")))
 else:
-    IMAGEM_BACKGROUND = pygame.transform.scale2x(pygame.image.load(os.path.join("./FlappyBird/imgs", "bgnight.png")))
+    IMAGEM_BACKGROUND = pygame.transform.scale2x(pygame.image.load(os.path.join("imgs", "bgnight.png")))
 IMAGENS_PASSARO = [
-    pygame.transform.scale2x(pygame.image.load(os.path.join("./FlappyBird/imgs", "bird1.png"))),
-    pygame.transform.scale2x(pygame.image.load(os.path.join("./FlappyBird/imgs", "bird2.png"))),
-    pygame.transform.scale2x(pygame.image.load(os.path.join("./FlappyBird/imgs", "bird3.png"))),
+    pygame.transform.scale2x(pygame.image.load(os.path.join("imgs", "bird1.png"))),
+    pygame.transform.scale2x(pygame.image.load(os.path.join("imgs", "bird2.png"))),
+    pygame.transform.scale2x(pygame.image.load(os.path.join("imgs", "bird3.png"))),
 ]
 
 
-fonte_botao = pygame.font.Font("./FlappyBird/imgs/font.ttf", 20)
+fonte_botao = pygame.font.Font("imgs/font.ttf", 20)
 tela = pygame.display.set_mode((TELA_LARGURA, TELA_ALTURA))
 cor_texto = (255, 255, 255)
 
@@ -230,10 +230,10 @@ def desenhar_tela(tela, passaros, canos, chao, pontos):
     pygame.display.update()
 
 def fonte(tamanho):
-    return pygame.font.Font("./FlappyBird/imgs/font.ttf", tamanho)
+    return pygame.font.Font("imgs/font.ttf", tamanho)
 
 def fontePoints(tamanho):
-    return pygame.font.Font("./FlappyBird/imgs/fonte.ttf", tamanho)
+    return pygame.font.Font("imgs/fonte.ttf", tamanho)
 
 def credits():
 
@@ -241,9 +241,9 @@ def credits():
     while iniciar:
 
         if hora.hour <= 17 and hora.hour >= 6:
-            bg = pygame.transform.scale2x(pygame.image.load(os.path.join("./FlappyBird/imgs/bg.png")))
+            bg = pygame.transform.scale2x(pygame.image.load(os.path.join("imgs/bg.png")))
         else:
-            bg = pygame.transform.scale2x(pygame.image.load(os.path.join("./FlappyBird/imgs/bgnight.png")))
+            bg = pygame.transform.scale2x(pygame.image.load(os.path.join("imgs/bgnight.png")))
         if hora.hour <= 17 and hora.hour >= 6:
             credits_texto = fonte(12).render("Jogo baseado no famoso FlappyBird.", True, "Black")
             credits_texto1 = fonte(12).render("Reconstruído e criado por Luiz Miguel.", True, "Black")
@@ -257,7 +257,7 @@ def credits():
         tela.blit(bg, (0, 0))
         mouse_pos = pygame.mouse.get_pos()    
         
-        botao_back = Botao(imagem=pygame.image.load("./FlappyBird/imgs/botão.png"), pos=(250, 380),
+        botao_back = Botao(imagem=pygame.image.load("imgs/botão.png"), pos=(250, 380),
                             texto="BACK", fonte=fonte, cor1="#d7fcd4", cor2="#0F0F0F")
         
         tela.blit(credits_texto, credits_rect)
@@ -284,9 +284,9 @@ def menu():
     while iniciar:
         
         if hora.hour <= 17 and hora.hour >= 6:
-            bg = pygame.transform.scale2x(pygame.image.load(os.path.join("./FlappyBird/imgs/bg.png")))
+            bg = pygame.transform.scale2x(pygame.image.load(os.path.join("imgs/bg.png")))
         else:
-            bg = pygame.transform.scale2x(pygame.image.load(os.path.join("./FlappyBird/imgs/bgnight.png")))
+            bg = pygame.transform.scale2x(pygame.image.load(os.path.join("imgs/bgnight.png")))
         tela.blit(bg, (0, 0))
         mouse_pos = pygame.mouse.get_pos()
         menu_texto = fonte(38).render("FlappyBird", True, "#b68f40")
@@ -297,11 +297,11 @@ def menu():
         menu_rect2 = menu_texto2.get_rect(center=(250, 630))
         
 
-        botao_iniciar = Botao(imagem=pygame.image.load("./FlappyBird/imgs/botão.png"), pos=(250, 300),
+        botao_iniciar = Botao(imagem=pygame.image.load("imgs/botão.png"), pos=(250, 300),
                             texto="PLAY", fonte=fonte, cor1="#d7fcd4", cor2="#0F0F0F")
-        botao_cred = Botao(imagem=pygame.image.load("./FlappyBird/imgs/botão.png"), pos=(250, 380),
+        botao_cred = Botao(imagem=pygame.image.load("imgs/botão.png"), pos=(250, 380),
                             texto="CREDITS", fonte=fonte, cor1="#d7fcd4", cor2="#0F0F0F")
-        botao_sair = Botao(imagem=pygame.image.load("./FlappyBird/imgs/botão.png"), pos=(250, 460),
+        botao_sair = Botao(imagem=pygame.image.load("imgs/botão.png"), pos=(250, 460),
                             texto="EXIT", fonte=fonte, cor1="#d7fcd4", cor2="#0F0F0F")
 
         tela.blit(menu_texto, menu_rect)
